@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YXY.EAT - RiceOS</title>
+
+<style>
+body{
+    background:#000;
+    color:#00ff88;
+    font-family:Consolas,monospace;
+    text-align:center;
+    margin:0;
+    padding-top:100px;
+}
+
+button{
+    background:#111;
+    color:#00ff88;
+    border:1px solid #00ff88;
+    padding:12px 24px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+#warning{
+    color:red;
+    font-size:24px;
+    display:none;
+    margin-top:20px;
+}
+
+#panel{
+    display:none;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Loading RiceOS...</h1>
+
+<p id="text">
+检测到米饭...
+</p>
+
+<button onclick="nextStep()">别点</button>
+
+<div id="warning">
+⚠ 食堂监控已启动
+</div>
+
+<div id="panel">
+<h2>YXY.EAT 数据中心</h2>
+
+<p>今日干饭量：999kg</p>
+<p>碳水浓度：100%</p>
+<p>食堂状态：运行中</p>
+
+</div>
+
+<script>
+
+let step=0;
+
+function nextStep(){
+
+step++;
+
+if(step==1){
+document.getElementById("text").innerText="检测到食堂...";
+}
+
+if(step==2){
+document.getElementById("text").innerText="检测到YXY...";
+}
+
+if(step==3){
+document.getElementById("warning").style.display="block";
+}
+
+if(step==4){
+document.getElementById("title").innerText="RiceOS 已接管";
+document.getElementById("panel").style.display="block";
+}
+
+if(step>=5){
+alert("🍚 干饭系统运行正常");
+}
+
+}
+
+</script>
+
+</body>
+</html>
